@@ -410,7 +410,7 @@ function renderDDs(){
 }
 function ddToggleOpen(dim){ddOpen=ddOpen===dim?'':dim;renderDDs();}
 function ddCheck(dim,v){tgl(st[dim],v);st.pg=0;render();}
-document.addEventListener('click',e=>{if(ddOpen&&!e.target.closest('.dd')){ddOpen='';renderDDs();}});
+document.addEventListener('click',e=>{if(!e.target.isConnected)return;if(ddOpen&&!e.target.closest('.dd')){ddOpen='';renderDDs();}});
 function clearAll(){st.m=[];st.a=[];st.cat=[];st.pt=[];st.ol=[];st.p=[];st.q='';st.drill='';st.pg=0;document.getElementById('f-q').value='';render();}
 
 const CHIP_NAMES={m:'กระทรวง',a:'หน่วยงาน',cat:'หมวดหมู่',pt:'ประเภทกระบวนงาน',ol:'การให้บริการ',p:'กระบวนงาน',q:'ค้นหา'};
